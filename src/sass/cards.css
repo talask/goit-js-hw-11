@@ -1,0 +1,32 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 9px;
+    line-height: 1.2;
+}
+
+.container {
+    width: 1200px;
+    padding: 15px; 
+}
+
+/* .gallery {
+    width: 100%;
+} */
+
+.photo-card {
+    flex-basis: calc((100% - 5px*4)/5);
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.info {
+    display: flex;
+    gap: 5px;
+}
+
+.info-item {
+    text-align: center;
+}
