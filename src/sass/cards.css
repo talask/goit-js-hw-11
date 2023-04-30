@@ -1,20 +1,53 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 9px;
+    font-size: 6px;
     line-height: 1.2;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
 .container {
     width: 1200px;
-    padding: 15px; 
+    padding: 10px 15px; 
 }
 
-/* .gallery {
-    width: 100%;
-} */
+.head {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(78,0,56,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+input {
+    outline: none;
+    width: 200px;
+    padding: 3px 5px;
+    font-family: inherit;
+    font-size: 10px;
+    font-style: italic;
+
+}
+
+.btn {
+    cursor:pointer;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 10px;
+}
 
 .photo-card {
-    flex-basis: calc((100% - 5px*4)/5);
+    flex-basis: calc((100% - 5px*3)/5);
+    text-align: center;
 }
 .gallery {
     display: flex;
@@ -24,9 +57,11 @@ body {
 
 .info {
     display: flex;
-    gap: 5px;
+    justify-content: space-around;
+    /* gap: 5px; */
+    /* width:100%; */
 }
 
-.info-item {
+/* .info-item {
     text-align: center;
-}
+} */

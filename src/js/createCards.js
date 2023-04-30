@@ -4,7 +4,7 @@ export default function createCards(arrData) {
     return arrData.map(({webformatURL, tags, likes, views, comments, downloads}) => {
         return `
         <div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="150px" height="100px"/>
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="200px" height="150px"/>
   <div class="info">
     <p class="info-item">
       <b>Likes</b><br>

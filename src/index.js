@@ -1,5 +1,7 @@
-import Notiflix from 'notiflix';
+
 import refs from './js/refs';
 import { onFormSubmit } from './js/onFormSubmit';
-//import {fetchImages} from './js/fetchImages';
+import  onLoadMore  from './js/onLoadMore';
+
 refs.searchForm.addEventListener('submit', onFormSubmit);
+refs.paginationBtn.addEventListener('click', onLoadMore);
