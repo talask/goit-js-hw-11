@@ -2,11 +2,14 @@ import Notiflix from 'notiflix';
 import refs from './refs';
 
 export default function controlPage(page, totalHits) {
+    
     if(page*40 >= (totalHits - 40)) {
         if(!isHidden()) {
+            
             refs.paginationBtn.classList.add('visually-hidden');
             if(page > 1){
-                Notiflix.Notify.info("again.");
+                console.log("!!");
+                Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
             }
         }
     }else{

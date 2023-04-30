@@ -7,5 +7,6 @@ export function onFormSubmit(e) {
         elements: { searchQuery },
     } = e.currentTarget;
     const searchValue = searchQuery.value.trim();
-   showGallery(searchValue, 1);
+   
+   showGallery(searchValue, 1, true);
 }
