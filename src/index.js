@@ -4,10 +4,24 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 import refs from './js/refs';
 import { onFormSubmit } from './js/onFormSubmit';
-import  onLoadMore  from './js/onLoadMore';
+import { throttle } from "lodash";
+
+// for scroll without button 'Load more...'
+import { onScrollListener } from "./js/onScrollListener";
+
+// only for button 'Load more...'
+//import  onLoadMore  from './js/onLoadMore';
+
 
 refs.searchForm.addEventListener('submit', onFormSubmit);
-refs.paginationBtn.addEventListener('click', onLoadMore);
+
+// for scroll without button 'Load more...'
+window.addEventListener('scroll',throttle(onScrollListener, 500));
+
+//  only for button 'Load more...'
+//refs.paginationBtn.addEventListener('click', onLoadMore);
+
+
 
 const options = {   			
     captionsData: 'alt',
