@@ -7,10 +7,9 @@ import refs from './refs';
 import Notiflix from 'notiflix';
 import PixabayAPI from './PixabayAPI';
 import createCards from './createCards';
-
- // for scroll without button 'Load more...'
-import controlPageScroll from './controlPageScroll';
-
+import { observer } from "./onScrollObserver";
+import controlPageScroll from "./controlPageScroll";
+ 
  // for button 'Load more...'
 //import controlPage from './controlPage';
 
@@ -37,28 +36,37 @@ export default async function showGallery (value, page, fl) {
            
             refs.gallery.innerHTML = createCards(data.hits);
             Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+           
+            // При фіксированій шапці в сторінці і повторному запиті користувача  observer генерує завантаження 2-ї сторінки. Для уникнення завантаження 2-ї сторінки переміщую скролл 
+            window.scrollTo({
+                top: 0,
+            });
 
+            observer.observe(refs.targetEl);
+         
+            
+            controlPageScroll(page, data.totalHits);
+            
         } else{
         
-        refs.gallery.insertAdjacentHTML("beforeend", createCards(data.hits));
+            refs.gallery.insertAdjacentHTML("beforeend", createCards(data.hits));
+            controlPageScroll(page, data.totalHits);
+
     //---------------------------------- 
     // only for button 'Load more...'
             
-    //         const { height: cardHeight } = refs.gallery.firstElementChild.getBoundingClientRect();
+            // const { height: cardHeight } = refs.gallery.firstElementChild.getBoundingClientRect();
        
-    //             window.scrollBy({
-    //             top: cardHeight * 2,
-    //             behavior: "smooth",
-    //         });
+            //     window.scrollBy({
+            //     top: cardHeight * 2,
+            //     behavior: "smooth",
+            // });
 
     //----------------------------------
     
         }    
         
         lightbox.refresh();
-         
-        // for scroll without button 'Load more...'
-        controlPageScroll(page, data.totalHits);
         
         // only for button 'Load more...'
         //controlPage(page, data.totalHits);

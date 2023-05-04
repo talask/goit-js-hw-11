@@ -1,7 +1,8 @@
 import Notiflix from 'notiflix';
 import refs from './refs';
+import { observer } from './onScrollObserver';
 
-export default function controlPage(page, totalHits) {
+export default function controlPageScroll(page, totalHits) {
     
     if(page*40 >= totalHits) {
     
@@ -11,14 +12,9 @@ export default function controlPage(page, totalHits) {
 
          }
 
-         // flag for scroll without button 'Load more...'
-        refs.isScrollEnd = 1;
+         //  for scroll without button 'Load more...'
+        observer.unobserve(refs.targetEl);
        
-    }else{
-
-        // flag for scroll without button 'Load more...'
-        refs.isScrollEnd = 0;
-
     }
 }
 
